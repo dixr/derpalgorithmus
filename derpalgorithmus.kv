@@ -1,55 +1,51 @@
-<PersonsScreen>:
-    BoxLayout:
-        orientation: 'vertical'
-        ActionBar:
-            ActionView:
-                ActionPrevious:
-                    title: 'DerPAlgorithmus'
-                    on_release: app.stop()
-                ActionButton:
-                    icon: 'icons/prev.png'
-                ActionButton:
-                    icon: 'icons/plus.png'
-                ActionButton:
-                    icon: 'icons/minus.png'
-                ActionButton:
-                    icon: 'icons/next.png'
-                    on_release: root.manager.current = 'conditions'
-                    important: True
-        Label:
-            text: '[color=00bbbb][b]Persons[/b][/color]'
-            size_hint: 1, .15
-            markup: True
+<DerPAlgorithmusGUI>:
+    sm: sm
+    orientation: 'vertical'
 
-<ConditionsScreen>:
-    BoxLayout:
-        orientation: 'vertical'
-        ActionBar:
-            ActionView:
-                ActionPrevious:
-                    title: 'DerPAlgorithmus'
-                    on_release: root.manager.current = 'persons'
-                ActionButton:
-                    icon: 'icons/prev.png'
-                    on_release: root.manager.current = 'persons'
-                ActionButton:
-                    icon: 'icons/plus.png'
-                ActionButton:
-                    icon: 'icons/minus.png'
-                ActionButton:
-                    icon: 'icons/next.png'
-                    on_release: root.manager.current = 'results'
-                    important: True
-        Label:
-            text: '[color=00bbbb][b]Conditions[/b][/color]'
-            size_hint: 1, .15
-            markup: True
+    ActionBar:
+        ActionView:
+            ActionPrevious:
+                title: 'DerPAlgorithmus'
+                on_release: root.set_previous_screen()
+            ActionButton:
+                icon: 'icons/prev.png'
+                on_release: root.set_previous_screen()
+                important: True
+            ActionButton:
+                icon: 'icons/plus.png'
+                important: True
+            ActionButton:
+                icon: 'icons/minus.png'
+                important: True
+            ActionButton:
+                icon: 'icons/next.png'
+                on_release: root.set_next_screen()
+                important: True
 
-<ResultsScreen>:
-    BoxLayout:
-        orientation: 'vertical'
-        ActionBar:
-            ActionView:
-                ActionPrevious:
-                    title: 'DerPAlgorithmus: Results'
-                    on_release: root.manager.current = 'conditions'
+    ScreenManager:
+        id: sm
+        Screen:
+            name: 'Persons'
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: '[color=00bbbb][b]Persons[/b][/color]'
+                    size_hint: 1, .15
+                    markup: True
+        Screen:
+            name: 'Conditions'
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: '[color=00bbbb][b]Conditions[/b][/color]'
+                    size_hint: 1, .15
+                    markup: True
+        Screen:
+            name: 'Results'
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: '[color=00bbbb][b]Results[/b][/color]'
+                    size_hint: 1, .15
+                    markup: True
+
