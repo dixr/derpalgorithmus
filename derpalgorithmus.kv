@@ -1,51 +1,68 @@
 <DerPAlgorithmusGUI>:
     sm: sm
+    persons_view: persons_view
+    onditions_view: conditions_view
+    results_view: results_view
     orientation: 'vertical'
 
     ActionBar:
         ActionView:
             ActionPrevious:
                 title: 'DerPAlgorithmus'
-                on_release: root.set_previous_screen()
+                on_release: root.button_prev()
             ActionButton:
                 icon: 'icons/prev.png'
-                on_release: root.set_previous_screen()
+                on_release: root.button_prev()
                 important: True
             ActionButton:
                 icon: 'icons/plus.png'
+                on_release: root.button_plus()
                 important: True
             ActionButton:
                 icon: 'icons/minus.png'
+                on_release: root.button_minus()
                 important: True
             ActionButton:
                 icon: 'icons/next.png'
-                on_release: root.set_next_screen()
+                on_release: root.button_next()
                 important: True
 
     ScreenManager:
         id: sm
         Screen:
             name: 'Persons'
-            BoxLayout:
-                orientation: 'vertical'
-                Label:
-                    text: '[color=00bbbb][b]Persons[/b][/color]'
-                    size_hint: 1, .15
-                    markup: True
+            ScrollView:
+                StackLayout:
+                    id: persons_view
+                    size_hint_y: None
+                    height: self.minimum_height
+                    Label:
+                        text: '[color=00bbbb][b]Persons[/b][/color]'
+                        markup: True
+                        size_hint: 1, None
+                        size: self.texture_size[0], self.texture_size[1]*2
         Screen:
             name: 'Conditions'
-            BoxLayout:
-                orientation: 'vertical'
-                Label:
-                    text: '[color=00bbbb][b]Conditions[/b][/color]'
-                    size_hint: 1, .15
-                    markup: True
+            ScrollView:
+                StackLayout:
+                    id: conditions_view
+                    size_hint_y: None
+                    height: self.minimum_height
+                    Label:
+                        text: '[color=00bbbb][b]Conditions[/b][/color]'
+                        markup: True
+                        size_hint: 1, None
+                        size: self.texture_size[0], self.texture_size[1]*2
         Screen:
             name: 'Results'
-            BoxLayout:
-                orientation: 'vertical'
-                Label:
-                    text: '[color=00bbbb][b]Results[/b][/color]'
-                    size_hint: 1, .15
-                    markup: True
+            ScrollView:
+                StackLayout:
+                    id: results_view
+                    size_hint_y: None
+                    height: self.minimum_height
+                    Label:
+                        text: '[color=00bbbb][b]Results[/b][/color]'
+                        markup: True
+                        size_hint: 1, None
+                        size: self.texture_size[0], self.texture_size[1]*2
 
