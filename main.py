@@ -1,5 +1,5 @@
 import kivy
-kivy.require('1.10.1')
+kivy.require('1.10.0')
 
 from kivy.app import App
 from kivy.core.window import Window
@@ -35,6 +35,8 @@ class DerPAlgorithmusGUI(BoxLayout):
             self.sm.current = 'Conditions'
         elif self.sm.current == 'Conditions':
             self.sm.current = 'Persons'
+        #elif self.sm.current == 'Persons':
+        #    App.get_running_app().stop()
 
     def button_plus(self):
         if self.sm.current == 'Persons':

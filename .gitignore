@@ -1,0 +1,6 @@
+.buildozer/
+bin/
+buildozer_notes/
+venv/
+__pycache__
+*.pyo
