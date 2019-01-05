@@ -13,6 +13,7 @@
                     title: 'DerPAlgorithmus'
                     on_release: root.button_prev()
                 ActionButton:
+                    id: actionprev
                     icon: 'icons/prev.png'
                     on_release: root.button_prev()
                     important: False
@@ -69,24 +70,29 @@
                             size_hint: 1, None
                             size: self.texture_size[0], self.texture_size[1]*2
 
+    BoxLayout:
+        orientation: 'vertical'
+
         Button:
-            pos_hint: {'right': 1, 'center_y': .5}
+            pos_hint: {'right': 1, 'bottom': 1}
             size_hint: None, None
+            size: actionprev.size if sm.current != 'Results' else [0,0]
             on_release: root.button_minus()
             background_color: 0, 0, 0, 0
             Image:
                 source: 'icons/minus.png'
-                center_x: self.parent.center_x
-                center_y: self.parent.center_y
+                size: self.parent.size
+                center: self.parent.center
                 allow_stretch: True
 
         Button:
-            pos_hint: {'right': 1, 'center_y': .5}
+            pos_hint: {'right': 1, 'bottom': 1}
             size_hint: None, None
+            size: actionprev.size if sm.current != 'Results' else [0,0]
             on_release: root.button_plus()
             background_color: 0, 0, 0, 0
             Image:
                 source: 'icons/plus.png'
-                center_x: self.parent.center_x
-                center_y: self.parent.center_y
+                size: self.parent.size
+                center: self.parent.center
                 allow_stretch: True

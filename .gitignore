@@ -5,4 +5,4 @@ __pycache__
 *.pyo
 icons/*.xcf
 apk/*
-!DerPAlgorithmus-0.2-debug.apk
+!DerPAlgorithmus-0.3-debug.apk

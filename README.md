@@ -33,7 +33,7 @@ sudo dpkg --add-architecture i386
 sudo apt install build-essential ccache libncurses5:i386 libstdc++6:i386 libgtk2.0-0:i386 libpangox-1.0-0:i386 libpangoxft-1.0-0:i386 libidn11:i386 python2.7 python2.7-dev openjdk-8-jdk unzip zlib1g-dev zlib1g:i386
 sudo pip install --upgrade testresources virtualenv setuptools
 
-# enter the virtualenv
+# setup the virtualenv
 virtualenv --no-site-packages venv
 source venv/bin/activate
 pip install -r requirements.txt
