@@ -1,5 +1,7 @@
 - change target api to >= 27
+- prepare docker file to build apk
 - implement conditions screen
 - app icon for actionbar
 - improve README.md
 - check alignment of the rows in results
+- enable swipe to switch screens
