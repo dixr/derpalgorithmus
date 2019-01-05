@@ -1,3 +1,5 @@
+- change target api to >= 27
+- implement conditions screen
 - app icon for actionbar
-- maybe different icons 
-- clean unused sdk versions
+- improve README.md
+- check alignment of the rows in results

@@ -6,10 +6,11 @@ from kivy.core.window import Window
 from kivy.properties import ObjectProperty
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
+from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import SlideTransition
 
-class DerPAlgorithmusGUI(BoxLayout):
+class DerPAlgorithmusGUI(FloatLayout):
     sm = ObjectProperty()
     persons_view = ObjectProperty()
     conditions_view = ObjectProperty()
@@ -41,7 +42,7 @@ class DerPAlgorithmusGUI(BoxLayout):
     def button_plus(self):
         if self.sm.current == 'Persons':
             self.persons_names.append(
-                    TextInput(text='Person '+str(len(self.persons_names)+1), 
+                    TextInput(text='Person '+str(len(self.persons_names)+1),
                               multiline=False, size_hint=(.5,None)))
             self.persons_names[-1].height = self.persons_names[-1].minimum_height
             self.persons_view.add_widget(self.persons_names[-1])

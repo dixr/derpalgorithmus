@@ -3,67 +3,90 @@
     persons_view: persons_view
     onditions_view: conditions_view
     results_view: results_view
-    orientation: 'vertical'
 
-    ActionBar:
-        ActionView:
-            ActionPrevious:
-                title: 'DerPAlgorithmus'
-                on_release: root.button_prev()
-            #ActionButton:
-            #    icon: 'icons/prev.png'
-            #    on_release: root.button_prev()
-            #    important: True
-            ActionButton:
-                text: 'Add item'
-                icon: 'icons/plus.png'
-                on_release: root.button_plus()
-            ActionButton:
-                text: 'Remove item'
-                icon: 'icons/minus.png'
-                on_release: root.button_minus()
-            ActionButton:
-                text: 'Continue'
-                icon: 'icons/next.png'
-                on_release: root.button_next()
-                important: True
+    BoxLayout:
+        orientation: 'vertical'
 
-    ScreenManager:
-        id: sm
-        Screen:
-            name: 'Persons'
-            ScrollView:
-                StackLayout:
-                    id: persons_view
-                    size_hint_y: None
-                    height: self.minimum_height
-                    Label:
-                        text: '[color=00bbbb][b]Persons[/b][/color]'
-                        markup: True
-                        size_hint: 1, None
-                        size: self.texture_size[0], self.texture_size[1]*2
-        Screen:
-            name: 'Conditions'
-            ScrollView:
-                StackLayout:
-                    id: conditions_view
-                    size_hint_y: None
-                    height: self.minimum_height
-                    Label:
-                        text: '[color=00bbbb][b]Conditions[/b][/color]'
-                        markup: True
-                        size_hint: 1, None
-                        size: self.texture_size[0], self.texture_size[1]*2
-        Screen:
-            name: 'Results'
-            ScrollView:
-                StackLayout:
-                    id: results_view
-                    size_hint_y: None
-                    height: self.minimum_height
-                    Label:
-                        text: '[color=00bbbb][b]Results[/b][/color]'
-                        markup: True
-                        size_hint: 1, None
-                        size: self.texture_size[0], self.texture_size[1]*2
+        ActionBar:
+            ActionView:
+                ActionPrevious:
+                    title: 'DerPAlgorithmus'
+                    on_release: root.button_prev()
+                ActionButton:
+                    icon: 'icons/prev.png'
+                    on_release: root.button_prev()
+                    important: False
+                ActionButton:
+                    icon: 'icons/next.png'
+                    on_release: root.button_next()
+                    important: True
+                ActionOverflow:
+                    ActionButton:
+                        text: 'Add'
+                        on_release: root.button_plus()
+                    ActionButton:
+                        text: 'Remove'
+                        on_release: root.button_minus()
 
+        ScreenManager:
+            id: sm
+            Screen:
+                name: 'Persons'
+                ScrollView:
+                    StackLayout:
+                        id: persons_view
+                        size_hint_y: None
+                        height: self.minimum_height
+                        padding: 5
+                        spacing: 5
+                        Label:
+                            text: '[color=00bbbb][b]Persons[/b][/color]'
+                            markup: True
+                            size_hint: 1, None
+                            size: self.texture_size[0], self.texture_size[1]*2
+            Screen:
+                name: 'Conditions'
+                ScrollView:
+                    StackLayout:
+                        id: conditions_view
+                        size_hint_y: None
+                        height: self.minimum_height
+                        Label:
+                            text: '[color=00bbbb][b]Conditions[/b][/color]'
+                            markup: True
+                            size_hint: 1, None
+                            size: self.texture_size[0], self.texture_size[1]*2
+            Screen:
+                name: 'Results'
+                ScrollView:
+                    StackLayout:
+                        id: results_view
+                        size_hint_y: None
+                        height: self.minimum_height
+                        Label:
+                            text: '[color=00bbbb][b]Results[/b][/color]'
+                            markup: True
+                            size_hint: 1, None
+                            size: self.texture_size[0], self.texture_size[1]*2
+
+        Button:
+            pos_hint: {'right': 1, 'center_y': .5}
+            size_hint: None, None
+            on_release: root.button_minus()
+            background_color: 0, 0, 0, 0
+            Image:
+                source: 'icons/minus.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                allow_stretch: True
+
+        Button:
+            pos_hint: {'right': 1, 'center_y': .5}
+            size_hint: None, None
+            on_release: root.button_plus()
+            background_color: 0, 0, 0, 0
+            Image:
+                source: 'icons/plus.png'
+                center_x: self.parent.center_x
+                center_y: self.parent.center_y
+                allow_stretch: True
